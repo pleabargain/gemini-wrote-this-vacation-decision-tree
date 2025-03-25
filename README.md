@@ -1,3 +1,9 @@
+see more of my apps here
+
+https://share.streamlit.io/?utm_source=streamlit&utm_medium=referral&utm_campaign=main&utm_content=-ss-streamlit-io-topright
+
+
+
 # 🌴 Vacation Decision Tree Planner
 
 A Streamlit app that helps you plan your ideal vacation based on your preferences and budget! Answer a series of questions to get personalized vacation recommendations.
