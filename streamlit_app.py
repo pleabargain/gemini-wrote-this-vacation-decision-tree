@@ -12,11 +12,37 @@ decision_tree = {
                 "choices": [
                     {
                         "label": "Beaches",
-                        "result": "Consider a local beach vacation."
+                        "next": {
+                            "question": "Is this a family trip or a romantic trip?",
+                            "type": "choice",
+                            "choices": [
+                                {
+                                    "label": "Family Trip",
+                                    "result": "Consider a local family-friendly beach vacation."
+                                },
+                                {
+                                    "label": "Romantic Trip",
+                                    "result": "Consider a cozy beachside getaway."
+                                }
+                            ]
+                        }
                     },
                     {
                         "label": "Mountains",
-                        "result": "Consider a local hiking trip."
+                        "next": {
+                            "question": "Do you prefer hiking or skiing?",
+                            "type": "choice",
+                            "choices": [
+                                {
+                                    "label": "Hiking",
+                                    "result": "Consider a local hiking trip."
+                                },
+                                {
+                                    "label": "Skiing",
+                                    "result": "Consider a nearby ski resort."
+                                }
+                            ]
+                        }
                     }
                 ]
             }
@@ -30,17 +56,25 @@ decision_tree = {
                     "question": "Do you have a valid passport?",
                     "type": "boolean",
                     "trueBranch": {
-                        "question": "Are you interested in cultural experiences?",
-                        "type": "boolean",
-                        "trueBranch": {
-                            "result": "Consider a trip to Europe."
-                        },
-                        "falseBranch": {
-                            "result": "Consider a resort in the Caribbean."
-                        }
+                        "question": "What type of holiday are you interested in?",
+                        "type": "choice",
+                        "choices": [
+                            {
+                                "label": "Beach Holiday",
+                                "result": "Consider a Caribbean beach vacation."
+                            },
+                            {
+                                "label": "Culture Holiday",
+                                "result": "Consider exploring European cities."
+                            },
+                            {
+                                "label": "Adventure Holiday",
+                                "result": "Consider a jungle trek in South America."
+                            }
+                        ]
                     },
                     "falseBranch": {
-                        "result": "Explore domestic destinations."
+                        "result": "Explore domestic destinations or renew your passport."
                     }
                 },
                 "falseBranch": {
@@ -54,6 +88,14 @@ decision_tree = {
                         {
                             "label": "Adventurous",
                             "result": "Consider a national park visit."
+                        },
+                        {
+                            "label": "Family Trip",
+                            "result": "Consider a family-friendly resort."
+                        },
+                        {
+                            "label": "Romantic Trip",
+                            "result": "Consider a romantic cabin in the mountains."
                         }
                     ]
                 }
@@ -67,15 +109,37 @@ decision_tree = {
                 "choices": [
                     {
                         "label": "Luxury Beach Resort",
-                        "result": "Consider Maldives or Bora Bora"
+                        "next": {
+                            "question": "Do you prefer self-booking or using a travel agent?",
+                            "type": "choice",
+                            "choices": [
+                                {
+                                    "label": "Self-Booking",
+                                    "result": "Consider booking a luxury beach resort in the Maldives."
+                                },
+                                {
+                                    "label": "Travel Agent",
+                                    "result": "Contact a travel agent for a curated experience in Bora Bora."
+                                }
+                            ]
+                        }
                     },
                     {
                         "label": "Adventure Safari",
-                        "result": "Consider a safari in Africa"
+                        "result": "Consider a luxury safari in Africa."
                     },
                     {
                         "label": "World Tour",
-                        "result": "Consider a cruise or multi-city tour"
+                        "next": {
+                            "question": "Would you like to stay with friends or family during your trip?",
+                            "type": "boolean",
+                            "trueBranch": {
+                                "result": "Plan a world tour with stops to visit friends and family."
+                            },
+                            "falseBranch": {
+                                "result": "Consider a cruise or a multi-city tour."
+                            }
+                        }
                     }
                 ]
             }
