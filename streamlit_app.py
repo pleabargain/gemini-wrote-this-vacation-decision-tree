@@ -204,9 +204,21 @@ def main():
     """
     Main function to run the Streamlit app.
     """
-    if "session_state" not in st.session_state:
-        st.session_state.session_state = {}
-    navigate_tree(decision_tree, st.session_state.session_state)
+    st.set_page_config(page_title="Vacation Decision Tree", layout="wide")
+
+    # Tabs for navigation
+    tab1, tab2 = st.tabs(["Vacation Planner", "README"])
+
+    with tab1:
+        if "session_state" not in st.session_state:
+            st.session_state.session_state = {}
+        navigate_tree(decision_tree, st.session_state.session_state)
+
+    with tab2:
+        st.title("README")
+        with open("README.md", "r") as readme_file:
+            readme_content = readme_file.read()
+        st.markdown(readme_content)
 
 if __name__ == "__main__":
     main()
